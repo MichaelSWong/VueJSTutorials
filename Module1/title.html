@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+
+<div id="app">
+<h1>{{message}}</h1>
+</div>
+<script src="https://vuejs.org/js/vue.js"/>
+</script>
+<script>
+    console.log('hi');
+    var app = new Vue({
+        el: '#app',
+        data:{
+            message: 'yow'
+        },
+        mounted: function () {
+            console.log("Mounted")
+        }
+    });
+</script>
+</body>
+</html>

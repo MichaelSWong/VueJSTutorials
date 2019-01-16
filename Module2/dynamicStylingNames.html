@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compativle" content="ie=edge">
+  <title>My first Vue app</title>  
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/dynamicStyling.css">
+</head>
+<body><!-- can set an array of classes []-->
+  <div id="app">
+      <div class="demo" 
+      @click="attachRed = !attachRed"
+      :class="divClasses"></div>
+      <div class="demo" :class="{red: attachRed}"></div>
+      <div class="demo" :class="[color, {red: attachRed}]"></div>
+      <hr>
+      <input type="text" v-model="color">
+  </div>
+  
+
+  <script> 
+    var app = new Vue({
+      el: '#app',
+      data: {
+          attachRed: false,
+          color: 'green'          
+      },
+      computed: {
+          divClasses: function() {
+              return {
+                  red: this.attachRed,
+                  blue: !this.attachRed
+              }
+          }
+      }
+    });
+  </script>
+</body>
+</html>

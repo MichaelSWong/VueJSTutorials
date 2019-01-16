@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compativle" content="ie=edge">
+  <title>My first Vue app</title>  
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/dynamicStylingNoCSS.css">
+</head>
+<body><!-- v-for to go through objects, adding a 
+            v-bind:key or :key -->
+  <div id="app">
+    <ul>
+        <li v-for="(ingredient, i) in ingredients" :key="ingredient">{{ ingredient }} ({{ i }})</li>
+    </ul>
+    <button @click="ingredients.push('spices')">Add New</button>
+    <hr>
+    <ul>
+        <li v-for="person in persons">
+            <div v-for="(value, key, index) in person">{{ key }}: {{ value }} ({{ index }})
+
+            </div>
+        </li>
+    </ul>
+    <span v-for="n in 10">{{ n }}</span>
+    <hr>
+    <template v-for="(ingredient, index) in ingredients">
+        <h1>{{ ingredient }}</h1>
+        <p>{{ index }}</p>
+    </template> 
+  </div>
+  
+
+  <script> 
+    var app = new Vue({
+      el: '#app',
+      data: {          
+          ingredients: ['meat', 'fruit', 'cookies'],
+          persons: [
+              {name: 'Max', age: 27, color: 'red'},
+              {name: 'Anna', age: 'unknown', color: 'blue'}
+          ]   
+      }
+    });
+  </script>
+</body>
+</html>

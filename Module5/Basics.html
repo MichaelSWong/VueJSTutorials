@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compativle" content="ie=edge">
+  <title>My first Vue app</title>  
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/dynamicStylingNoCSS.css">
+</head>
+<body><!--  -->
+  <div id="app">
+      <h1>{{ title }}</h1>
+      <button v-on:click="show">Show Paragraph</button>
+      <p v-if="showParagraph">This is not always visable</p>
+  </div>
+  
+
+  <script> 
+    var app = new Vue({
+      el: '#app',
+      data: {          
+          title: 'The VueJS Instance',
+          showParagraph: false    
+      },
+      methods: {
+          show: function() {
+              this.showParagraph = true;
+              this.updateTitle('The VueJS instance (Updated)')
+          },
+          updateTitle: function(title) {
+              this.title = title;
+          }
+      },
+      computed: {
+          lowercaseTitle: function() {
+              return this.title.toLowerCase();
+          }
+      },
+      watch: {
+          title: function(value) {
+              alert('Title changed, new value: ' + value);
+          }
+      }
+    });
+  </script>
+</body>
+</html>

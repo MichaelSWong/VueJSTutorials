@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compativle" content="ie=edge">
+  <title>My first Vue app</title>  
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body><!--data is not reactive-->
+  <div id="app">
+      <button v-on:click="counter++">Increase</button>
+      <button v-on:click="counter--">Decrease</button>
+      <button v-on:click="secondCounter++">Increase Second</button>
+      <p>Counter: {{ counter }} | {{ secondCounter }}</p>
+      <p>Result: {{ result() }} | {{ output }}</p>      
+  </div>
+  
+
+  <script> 
+    var app = new Vue({
+      el: '#app',
+      data: {
+        counter: 0,
+        secondCounter: 0      
+      },
+      computed: {
+          output: function() {
+              console.log('Computed');
+              return this.counter > 5 ? 'Greater than 5' : 'Smaller than 5';
+          }
+      },
+      methods: {
+          result: function() {
+              console.log('Method');
+              return this.counter > 5 ? 'Greater than 5' : 'Smaller than 5';
+          }
+      }
+    })
+  </script>
+</body>

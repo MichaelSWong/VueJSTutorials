@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compativle" content="ie=edge">
+  <title>My first Vue app</title>  
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body><!--v-on == @, v-bind:href == :href-->
+  <div id="app">
+      <button @click="changeLink">Click to Change Link</button>
+      <a :href="link">Link</a>   
+  </div>
+  
+
+  <script> 
+    var app = new Vue({
+      el: '#app',
+      data: {
+        link: 'http://google.com'     
+      },      
+      methods: {
+          changeLink: function() {
+            this.link = 'http://apple.com'
+          }
+      }
+    })
+  </script>
+</body>
